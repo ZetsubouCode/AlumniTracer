@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateDataAlumnisTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('data_alumnis', function (Blueprint $table) {
+            $table->string('nim')->primary();
+            $table->string('nama');
+            $table->date('tanggal_lulus');
+            $table->string('prodi');
+            $table->string('fakultas');
+            $table->string('no_ijasah');
+            $table->text('histori');
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('data_alumnis');
+    }
+}
